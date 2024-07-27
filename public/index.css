@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+h1{
+    color: blue;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 17pc;
+    margin-right: 25pc;
+    margin: 0;
+    position: absolute;
+    top: 20%;/* Adjust this value to move the heading up or down */
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+
+
+}
+.container {
+    background-color: white;
+    padding: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.shorten-box {
+    display: flex;
+    margin-top: 20px;
+}
+#url-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+}
+#shorten-btn {
+    padding: 10px 20px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
