@@ -15,7 +15,33 @@
           <button id="shorten-btn">Shorten URL</button>
         </div>
       </div>
-      <script src="index.js"></script>
+      <script>
+        document
+          .getElementById("shorten-btn")
+          .addEventListener("click", function () {
+            const url = document.getElementById("url-input").value;
+
+            if (url) {
+              fetch("http://localhost:3000/api/links/shorten", {
+                method: "POST", // or 'POST' if your API requires it
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ url: url }), // Send the URL in the request body
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log("Success:", data);
+                  // Handle the response data here
+                })
+                .catch((error) => {
+                  console.error("Error:", error);
+                });
+            } else {
+              alert("Please enter a URL");
+            }
+          });
+      </script>
     </body>
   </head>
 </html>
