@@ -54,3 +54,8 @@ h1{
     border-radius: 0 5px 5px 0;
     cursor: pointer;
 }
+p {
+    font-size: 25px;
+    padding: 10px;
+    font-weight: bold;
+}
