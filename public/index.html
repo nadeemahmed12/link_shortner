@@ -23,16 +23,15 @@
 
             if (url) {
               fetch("http://localhost:3000/api/links/shorten", {
-                method: "POST", // or 'POST' if your API requires it
+                method: "POST", //
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ url: url }), // Send the URL in the request body
+                body: JSON.stringify({ url: url }),
               })
                 .then((response) => response.json())
                 .then((data) => {
                   console.log("Success:", data);
-                  // Handle the response data here
                 })
                 .catch((error) => {
                   console.error("Error:", error);
