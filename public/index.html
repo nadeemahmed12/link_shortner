@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>shorturl</title>
     <link rel="stylesheet" href="index.css" />
-<<<<<<< HEAD
 
     <body>
       <h1>Short URL</h1>
@@ -43,8 +42,6 @@
           });
       </script>
     </body>
-=======
->>>>>>> 985c44859b3102c7ec63ee6dadfcba70fcf4f21f
   </head>
   <body>
     <h1>Short URL</h1>
@@ -56,32 +53,30 @@
       </div>
     </div>
     <script>
-      document
-        .getElementById("shorten-btn")
-        .addEventListener("click", () => {
-          const url = document.getElementById("url-input").value;
+      document.getElementById("shorten-btn").addEventListener("click", () => {
+        const url = document.getElementById("url-input").value;
 
-          if (url) {
-            console.log(`Url aa gya bahi`);
-            fetch("/api/links", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ originalUrl: url }), // Send the URL in the request body
+        if (url) {
+          console.log(`Url aa gya bahi`);
+          fetch("/api/links", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ originalUrl: url }), // Send the URL in the request body
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+              // Handle the response data here
             })
-              .then((response) => response.json())
-              .then((data) => {
-                console.log("Success:", data);
-                // Handle the response data here
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-              });
-          } else {
-            alert("Please enter a URL");
-          }
-        });
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        } else {
+          alert("Please enter a URL");
+        }
+      });
     </script>
   </body>
 </html>
