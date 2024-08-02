@@ -8,7 +8,9 @@ const createShortLink = async (req, res) => {
 };
 
 const getOriginalUrl = async (req, res) => {
-  const link = await Link.findById(req.params.id);
+  const shortUrl = req.params;
+  const link = await Link.findOne(shortUrl);
+
   if (link) {
     link.clicks += 1;
     await link.save();
@@ -19,7 +21,8 @@ const getOriginalUrl = async (req, res) => {
 };
 
 const getAnalytics = async (req, res) => {
-  const link = await Link.findById(req.params.id);
+  const shortUrl = req.params;
+  const link = await Link.findOne(shortUrl);
 
   if (link) {
     return res.status(200).json({click:link.clicks, url:link.originalUrl, url2:link.shortUrl});
