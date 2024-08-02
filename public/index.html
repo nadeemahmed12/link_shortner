@@ -13,6 +13,9 @@
         <input type="text" placeholder="Enter the link here" id="url-input" />
         <button id="shorten-btn">Shorten URL</button>
       </div>
+      <br>
+      <br>
+      <div id="result"></div>
     </div>
     <script>
       document.getElementById("shorten-btn").addEventListener("click", () => {
@@ -32,6 +35,7 @@
               console.log("Success:", data);
               // Handle the response data here
             })
+<<<<<<< HEAD
             .catch((error) => {
               console.error("Error:", error);
             });
@@ -39,6 +43,21 @@
           alert("Please enter a URL");
         }
       });
+=======
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(`http://localhost:3000/api/links/${data.shortUrl}`);
+                document.getElementById("result").innerHTML = `Your short link is <a href="http://localhost:3000/api/links/${data.shortUrl}">http://localhost:3000/api/links/${data.shortUrl}</a>`;
+                // Handle the response data here
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          } else {
+            alert("Please enter a URL");
+          }
+        });
+>>>>>>> f7cc7abf0431278ef0fd16c9d9e07c7fc8a54653
     </script>
   </body>
 </html>
