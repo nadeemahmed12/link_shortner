@@ -35,15 +35,6 @@
               console.log("Success:", data);
               // Handle the response data here
             })
-<<<<<<< HEAD
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        } else {
-          alert("Please enter a URL");
-        }
-      });
-=======
               .then((response) => response.json())
               .then((data) => {
                 console.log(`http://localhost:3000/api/links/${data.shortUrl}`);
@@ -57,7 +48,6 @@
             alert("Please enter a URL");
           }
         });
->>>>>>> f7cc7abf0431278ef0fd16c9d9e07c7fc8a54653
     </script>
   </body>
 </html>
