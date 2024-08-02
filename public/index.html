@@ -19,34 +19,33 @@
       <div id="result"></div>
     </div>
     <script>
-      document
-        .getElementById("shorten-btn")
-        .addEventListener("click", () => {
-          const url = document.getElementById("url-input").value;
+      document.getElementById("shorten-btn").addEventListener("click", () => {
+        const url = document.getElementById("url-input").value;
 
-          if (url) {
-            console.log(Url aa gya bahi);
-            fetch("/api/links", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ originalUrl: url }), // Send the URL in the request body
+        if (url) {
+          console.log(`Url aa gya bahi`);
+          fetch("/api/links", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ originalUrl: url }), // Send the URL in the request body
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(`http://localhost:3000/api/links/${data.shortUrl}`);
+              document.getElementById(
+                "result"
+              ).innerHTML = `Your short link is <a href="http://localhost:3000/api/links/${data.shortUrl}">http://localhost:3000/api/links/${data.shortUrl}</a>`;
+              // Handle the response data here
             })
-              .then((response) => response.json())
-              .then((data) => {
-                console.log(http://localhost:3000/api/links/${data.shortUrl});
-                document.getElementById("result").innerHTML = Your short link is <a href="http://localhost:3000/api/links/${data.shortUrl}">http://localhost:3000/api/links/${data.shortUrl}</a>;
-                // Handle the response data here
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-              });
-          } else {
-            alert("Please enter a URL");
-          }
-        });
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        } else {
+          alert("Please enter a URL");
+        }
+      });
     </script>
-     
   </body>
 </html>
