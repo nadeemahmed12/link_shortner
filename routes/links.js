@@ -4,7 +4,7 @@ import { createShortLink, getOriginalUrl, getAnalytics } from "../controllers/li
 const router = express.Router();
 
 router.post("/", createShortLink);
-router.get("/:id", getOriginalUrl);
-router.get("/analytics/:id", getAnalytics);
+router.get("/:shortUrl", getOriginalUrl);
+router.get("/analytics/:shortUrl", getAnalytics);
 
 export default router;
